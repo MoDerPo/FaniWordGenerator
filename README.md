@@ -1,4 +1,4 @@
-### v1.0
+### v1.1
 # FaniWordGenerator
 ## Requirements:
 - python 3
