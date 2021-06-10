@@ -167,11 +167,11 @@ function generateWord(words){
         addLetter   = true
     }else{
     addLetter   = false
+    }
     removeLast = removeLast
     addLetter  = addLetter
     index      = randint(index)
     word       = apply(words, removeLast, addLetter, index)
-    }
     return(word)
 }
 function generateSentence(adjcetivs, nouns, end){
