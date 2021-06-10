@@ -4,5 +4,4 @@
 - Browser
 ## Usage:
 1. lower your expectations
-2. Open `index.html`
-3. press regenerate as many times as you want.
+2. Open the [repository page](https://moderpo.github.io/FaniWordGenerator/)
