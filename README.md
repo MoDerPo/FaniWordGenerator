@@ -1,4 +1,4 @@
-### v2.1
+### v3.0
 # FaniWordGenerator
 ## Requirements:
 - Browser
