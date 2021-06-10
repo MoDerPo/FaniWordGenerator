@@ -136,7 +136,7 @@ function randint(max) {
     return Math.floor(Math.random() * max)
 }
 function choose(choices) {
-    var index = randint(max);
+    var index = randint(choices.length);
     return choices[index];
 }
 
