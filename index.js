@@ -1,5 +1,5 @@
-class fani_wrods:
-    adjcetivs = [
+let fani_wrods = {
+    adjcetivs: [
         "african-american",
         "ahlal",
         "allah abprovde",
@@ -42,8 +42,8 @@ class fani_wrods:
         "subtitled",
         "sus",
         "sussy"
-    ]
-    nouns = [
+    ],
+    nouns: [
         "360p",
         "ala",
         "alah",
@@ -112,8 +112,8 @@ class fani_wrods:
         "texture pack",
         "video",
         "virus"
-    ]
-    end = [
+    ],
+    end: [
         "sex",
         "download",
         "360p",
@@ -130,42 +130,54 @@ class fani_wrods:
         "pig",
         "simulator"
     ]
+}
 
-import random
-import string
+function randint(max) {
+    return Math.floor(Math.random() * max)
+}
+function choose(choices) {
+    var index = randint(max);
+    return choices[index];
+}
 
-
-def apply(list, removeLast, addLetter, index):
-    word = list[index]
-    if(removeLast):
-        word.removesuffix(word[-1])
-    if(addLetter):
-        word = '{}{}'.format(word, (random.choice(string.ascii_lowercase)))
+function apply(words, removeLast, addLetter, index){
+    let word = words[index]
+    if(removeLast){
+        word.slice(0, -1)
+    }
+    if(addLetter){
+        word = word+' '+choose(["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","z"])
+    }
     return(word)
+}
+function generateWord(words){
+    let removeLast  = 10,
+        addLetter   = 10,
+        index       = words.length-1,
+        word
 
-def generateWord(list):
-    removeLst  = 10
-    addLttr    = 10
-    indx       = len(list) - 1
-
-    if random.randint(0, removeLst)   == 1 :
-        removeLst  = True
-    else:
-        removeLst  = False
+    if (randint(removeLast)   == 1) {
+        removeLast  = true
+    }
+    else{
+        removeLast  = false
+    }
     
-    if random.randint(0, addLttr)    == 1 :
-        addLttr   = True
-    else:
-        addLttr   = False
-    removeLast = removeLst
-    addLetter  = addLttr
-    index      = random.randint(0, indx)
-    word       = apply(list, removeLast, addLetter, index)
+    if (randint(addLetter)    == 1) {
+        addLetter   = true
+    }else{
+    addLetter   = false
+    removeLast = removeLast
+    addLetter  = addLetter
+    index      = randint(index)
+    word       = apply(words, removeLast, addLetter, index)
+    }
     return(word)
-def generateSentence(adjcetivs, nouns, end):
-    return '{} {} {}'.format(generateWord(adjcetivs), generateWord(nouns), generateWord(end))
-
-def execute(adjcetivs, nouns, endend):
-    if input(generateSentence(adjcetivs, nouns, endend)) == '':
-        execute(adjcetivs, nouns, endend)
-execute(fani_wrods.adjcetivs, fani_wrods.nouns, fani_wrods.end)
+}
+function generateSentence(adjcetivs, nouns, end){
+    return generateWord(adjcetivs)+' '+generateWord(nouns)+' '+generateWord(end)
+}
+function execute(adjcetivs, nouns, end){
+    return generateSentence(adjcetivs, nouns, end)
+}
+console.log(execute(fani_wrods.adjcetivs, fani_wrods.nouns, fani_wrods.end))
