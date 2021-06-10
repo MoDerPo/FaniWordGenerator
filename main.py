@@ -166,6 +166,6 @@ def generateSentence(adjcetivs, nouns, end):
     return '{} {} {}'.format(generateWord(adjcetivs), generateWord(nouns), generateWord(end))
 
 def execute(adjcetivs, nouns, endend):
-    if input(generateSentence(adjcetivs, nouns, endend)):
+    if input(generateSentence(adjcetivs, nouns, endend)) == '':
         execute(adjcetivs, nouns, endend)
 execute(fani_wrods.adjcetivs, fani_wrods.nouns, fani_wrods.end)
